@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+</head>
+<body>
+    <div class="container">
+        <h1> ToDo App </h1>
+        <form action="/create-task" method="POST">
+            <label for="description">Description</label><br />
+            <input type="text" class="form-control" id="username" name = "name" required><br />
+
+            <label for="category">Category</label><br />
+            <input type="text" class="form-control" id="username" name = "category" required><br />
+
+            <label for="date">Date</label><br />
+            <input type="date" class="form-control" id="username" name = "date" required><br />
+
+            <button class="btn btn-primary type = "submit">Submit</button>
+        </form>
+    
+    </div>
+    
+</body>
+</html>
