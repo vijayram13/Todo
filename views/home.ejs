@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title%></title>
+    <title>
+        <%= title%>
+    </title>
 </head>
+
 <body>
     <div class="container">
         <h1> ToDo App </h1>
         <form action="/create-task" method="POST">
+
             <label for="description">Description</label><br />
-            <input type="text" class="form-control" id="username" name = "name" required><br />
+
+            <input type="text" class="form-control" id="username" placeholder="description" name="description"
+                onfocus="cc" required><br />
+
 
             <label for="category">Category</label><br />
-            <input type="text" class="form-control" id="username" name = "category" required><br />
+
+            <input type="text" class="form-control" id="username" placeholder="category" name="category" required><br />
 
             <label for="date">Date</label><br />
-            <input type="date" class="form-control" id="username" name = "date" required><br />
 
-            <button class="btn btn-primary type = "submit">Submit</button>
+            <input type="date" class="form-control" id="username" name="date" required><br />
+
+            <button class="btn btn-primary type = " submit">Submit</button>
         </form>
-    
+
+
+
+        <ul>
+            <% for (let i=0; i < taskList.length; i++){ %>
+
+
+                <li>
+                    <div class="taskBox" style="background-color: aquamarine;">
+
+                        <p>Description:<%= taskList[i].description%>
+                        </p>
+                        <p>Category:<%= taskList[i].category%>
+                        </p>
+                        <p>Date:<%= taskList[i].date%>
+                        </p>
+
+                    </div>
+                    <div class="delete">
+                        <a
+                            href="/task/?id=<%= taskList[i]._id %>">
+
+                            <button>
+                                Delete
+                            </button>
+                        
+
+                        </a>
+                    </div>
+                </li>
+
+
+                <%}%>
+
+        </ul>
+
+
+
     </div>
-    
+
 </body>
+
 </html>

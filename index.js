@@ -3,6 +3,8 @@ const app = express();
 const port = 5000;
 const path = require('path');
 
+
+
 // to get body elemet using post request
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -11,7 +13,7 @@ app.use(bodyParser.urlencoded( {extended: true}));
 //middleware
 app.use("/", require('./routes/route.js'));
 
-
+const db = require('./config/mongoose');
 
 //ejs setup
 app.set('view engine', 'ejs');
