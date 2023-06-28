@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', homeController.home)
 
 //deletepage routes (to delete document)
-router.get('/task', homeController.task);
+router.post('/task', homeController.task);
 
 //createtask routes (to get form submission data)
 router.post('/create-task', homeController.formdata);

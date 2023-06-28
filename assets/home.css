@@ -1,0 +1,171 @@
+html,
+body {
+    height: 100%;
+}
+
+.bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: radial-gradient(circle at 30% 86%, rgba(255, 255, 255, 0.39) 0%, rgba(255, 255, 255, 0.03) 8%, transparent 8%, transparent 92%), radial-gradient(circle at 55% 100%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 8%, transparent 8%, transparent 92%), radial-gradient(circle at 40% 75%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 6%, transparent 6%, transparent 94%), radial-gradient(circle at 7% 99%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 6%, transparent 6%, transparent 94%), radial-gradient(circle at 69% 76%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 6%, transparent 6%, transparent 94%), radial-gradient(circle at 2% 35%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 6%, transparent 6%, transparent 94%), radial-gradient(circle at 14% 48%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 6%, transparent 6%, transparent 94%), radial-gradient(circle at 28% 87%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.04) 4%, transparent 4%, transparent 96%), radial-gradient(circle at 65% 14%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.04) 4%, transparent 4%, transparent 96%), radial-gradient(circle at 51% 36%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.04) 4%, transparent 4%, transparent 96%), radial-gradient(circle at 6% 93%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.04) 4%, transparent 4%, transparent 96%), linear-gradient(135deg, rgb(23, 233, 173), rgb(29, 24, 208));
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 450px;
+    margin: 10px;
+    background: rgba(227, 57, 207, 0.658);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.form-signin h1 {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.form-signin form {
+    padding: 10px;
+}
+
+
+
+.form-signin form .form-control:focus {
+    border-color: #ced4da;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.form-signin .form-control {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.form-signin input[type="date"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+
+.category-date-box .form-floating {
+    margin-top: 5px;
+    width: 50%;
+    float: left;
+
+}
+
+.button-box {
+    margin-top: 70px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+
+}
+
+.btn {
+    background: rgba(34, 24, 176, 0.6);
+    backdrop-filter: blur(10px);
+    color: #fff;
+}
+.btn-delete:hover,
+.btn-delete:focus {
+    background: red;
+    box-shadow: none;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+    background: rgba(5, 234, 58, 0.603);
+    box-shadow: none;
+}
+
+.btn-add,
+.btn-delete {
+    width: 40%;
+    margin: 2px;
+
+}
+
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.label-box{
+
+    display: flex;
+    height:fit-content;
+    position: relative;
+    justify-content:start ;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.details{
+    display: flex;
+    justify-content:start ;
+    align-items:center;
+    
+    align-items:center;
+    margin-left: 10px;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-size: large;
+    background-color: aqua;
+}
+
+.display-container{
+    margin-top: 0;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow:auto;
+}
+
+ul{
+    background: #ecafde;
+}

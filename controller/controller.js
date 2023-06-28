@@ -3,18 +3,22 @@
 const model = require("../models/todo_schema")
 
 
+
+
 module.exports.home = function (req, res) {
     //console.log(req.query.desc);
 
     readDocument().then((result) => {
 
-        //console.log("result", result);
+        // console.log("result", result);
         
         return res.render('home', {
             // passing the title to home page
             title: "my page",
             //passing the collection data to home page
             taskList: result
+
+           
         });
         
     })
@@ -30,9 +34,9 @@ module.exports.home = function (req, res) {
 
 module.exports.task = function (req, res) {
 
-    
+    // console.log(req.body.checkedListId);
     // delete function to delete document
-    deleteDocument(req.query.id)
+    deleteDocument(req.body.checkedListId)
 
     // redirect to home page
     res.redirect('back');
@@ -55,6 +59,8 @@ module.exports.formdata = function (req, res) {
 //create document in MongoDB
 const createDocuments = async(req)=> {
     try {
+
+        // console.log("error",req.body);
         //get data from server(using parser)
         const createdocument = new model(req.body);
         //console.log("created document", createdocument);
@@ -87,9 +93,9 @@ const deleteDocument = async (id) => {
         //console.log("Id :",id);
 
         // different delete methods
-        const data  = await model.findByIdAndDelete(id);
+        //const data  = await model.findByIdAndDelete(id);
         // const data  = await model.deleteOne({_id:id});
-        //const data  = await model.deleteMany({_id:[]});
+        const data  = await model.deleteMany({_id:id});
 
 
         // console.log("deleteDocument:",data);

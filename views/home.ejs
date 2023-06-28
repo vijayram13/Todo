@@ -7,69 +7,141 @@
     <title>
         <%= title%>
     </title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+        <!-- local css file -->
+    <link rel="stylesheet" href="home.css" type="text/css">
 </head>
 
 <body>
-    <div class="container">
-        <h1> ToDo App </h1>
-        <form action="/create-task" method="POST">
+    <div class="form-signin">
+        <!-- Heading -->
+        <h1 class="h3"> Todo App</h1>
+        <!-- Task create form  -->
+        <form action="/create-task" id="create" method="POST">
 
-            <label for="description">Description</label><br />
+            <!-- description input -->
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="description" name="description"
+                    autocomplete="off" required>
+                <label for="floatingInput">Description</label>
+            </div>
 
-            <input type="text" class="form-control" id="username" placeholder="description" name="description"
-                onfocus="cc" required><br />
 
+            <!-- category-date-input-box  -->
+            <div class="category-date-box">
 
-            <label for="category">Category</label><br />
+                <!-- Category input
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingCategory" placeholder="category" name="category"
+                        required>
+                    <label for="floatingCategory">Category</label>
+                </div> -->
+                
+                <div class="form-floating">
+                   
+                    <select name="category" class="form-control" id="option" required title="Category">
+                        
+                        
+                        <option value="👤"> 👤Personal</option>
+                        <option value="👮🏻"> 👮🏻Office</option>
+                        <option value="🏄🏼"> 🏄🏼Sport</option>
+                        <option value="🤡"> 🤡meeting</option>
+                        
+                      </select>
+                      <label for="option">Category </label>
+                </div>
+                
+                  
 
-            <input type="text" class="form-control" id="username" placeholder="category" name="category" required><br />
+                <!-- Date input -->
+                <div class="form-floating">
+                    <input type="date" class="form-control" id="floatingPassword" placeholder="date" name="date"
+                        required>
+                    <label for="floatingPassword">Date</label>
+                </div>
 
-            <label for="date">Date</label><br />
+            </div>
 
-            <input type="date" class="form-control" id="username" name="date" required><br />
-
-            <button class="btn btn-primary type = " submit">Submit</button>
         </form>
 
 
+        
+        <!-- ADD and DELETE button box -->
+        <div class="button-box">
+            <!-- task add button -->
+            <button class="btn btn-add" type="submit" form="create">Add</button>
+            <!-- task delete button -->
+            <button class="btn btn-delete" type="submit" form="checked">Delete</button>
 
-        <ul>
-            <% for (let i=0; i < taskList.length; i++){ %>
+        </div>
+        <hr>
+
+        <!-- TASKs list display container -->
+        <div class="display-container">
+
+            <!-- form to check checkbox are checked or not  -->
+            <form action="/task" id="checked" method="post">
+
+                <!-- Unordered List to display task from MongoDB -->
+                <ul>
+                    <% for (let i=0; i < taskList.length; i++){ %>
+                        <hr>
+
+                        <li>
+
+                            <label for=<%=taskList[i]._id%> class="label-box">
+                                <!-- checkbox -->
+                                <input  type="checkbox" value=<%=taskList[i]._id%> name=
+                                "checkedListId"
+                                id=<%=taskList[i]._id%> />
+
+                                    <!-- taskDetails -->
+                                    <div class="details">
+                                        <dl>
+                                            <!-- Description -->
+                                            <dt><strong>
+                                                    <%= taskList[i].description%>
+                                                </strong></dt>
+                                            <!-- Date -->
+                                            <p>
+                                                <%= taskList[i].date%>
+                                            </p>
+                                        </dl>
+                                    </div>
+                                    <!-- Category -->
+                                    <div class="box">
+                                        <%= taskList[i].category%>
+                                    </div>
 
 
-                <li>
-                    <div class="taskBox" style="background-color: aquamarine;">
-
-                        <p>Description:<%= taskList[i].description%>
-                        </p>
-                        <p>Category:<%= taskList[i].category%>
-                        </p>
-                        <p>Date:<%= taskList[i].date%>
-                        </p>
-
-                    </div>
-                    <div class="delete">
-                        <a
-                            href="/task/?id=<%= taskList[i]._id %>">
-
-                            <button>
-                                Delete
-                            </button>
-                        
-
-                        </a>
-                    </div>
-                </li>
+                            </label>
 
 
-                <%}%>
-
-        </ul>
+                        </li>
 
 
 
-    </div>
+                        <%}%>
+
+
+
+                </ul>
+
+            </form>
+
+
+        </div>
 
 </body>
+
+
+</script>
 
 </html>
